@@ -2,7 +2,7 @@
     <div>
       <v-card flat tile>
         <v-toolbar dense color="purple" dark>
-          <v-app-bar-nav-icon @click.native="sideNav = !sideNav"
+          <v-app-bar-nav-icon @click="sideNav = !sideNav"
             class="d-sm-none"
           ></v-app-bar-nav-icon>
           <v-toolbar-title class="pl-0">
@@ -11,7 +11,7 @@
           <v-spacer></v-spacer>
           <v-toolbar-items class="d-none d-sm-block">
             <v-btn left class="btn-navigation" v-for="item in menuItems"
-            :key="item.title" router :to="item.link">
+            :key="item.title" :to="item.link">
               <v-icon left>{{ item.icon }}</v-icon>
               {{ item.title }}
             </v-btn>
@@ -23,7 +23,7 @@
           <v-list-item
             v-for="item in menuItems"
             :key="item.title"
-            link router
+            link
             :to="item.link"
           >
             <v-list-item-icon>
