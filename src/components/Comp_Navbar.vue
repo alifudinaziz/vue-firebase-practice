@@ -6,7 +6,7 @@
             class="d-sm-none"
           ></v-app-bar-nav-icon>
           <v-toolbar-title class="pl-0">
-            <router-link to="/" tag="span" style="cursor: pointer;">Event Meetup</router-link>
+            <router-link to="/" tag="span" style="cursor: pointer">Event Meetup</router-link>
           </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items class="d-none d-sm-block">

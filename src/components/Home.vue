@@ -11,10 +11,11 @@
     <v-layout row wrap>
       <v-flex xs12>
         <v-carousel>
-          <v-carousel-item
+          <v-carousel-item style="cursor: pointer"
             v-for="item in meetupsCarousel"
             :key="item.id"
             :src="item.imageUrl"
+            @click="onLoadEvent(item.id)"
             reverse-transition="fade-transition"
             transition="fade-transition"
           >
@@ -40,16 +41,21 @@
       meetupsCarousel: [
         {
           id: 'awda12awda',
-          imageUrl: 'https://media.istockphoto.com/photos/city-of-surabaya-picture-id1302747204?k=20&m=1302747204&s=612x612&w=0&h=CP6nVGeen2G8kKl7tBBD7d7yUCCBdkUzzDHIEb0HD20=',
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Tugu_Pahlawan_6.jpg',
           title: 'Event in Surabaya',
         },
         {
           id: 'tyyu12tyyu',
-          imageUrl: 'https://media.istockphoto.com/photos/beautiful-jakarta-city-at-new-normal-situation-picture-id1311024046?b=1&k=20&m=1311024046&s=170667a&w=0&h=2quCC-xYIzReDC-L2oJ2SXAj6wu8p0CESzF0xOnnquQ=',
+          imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Busway_in_Bundaran_HI.jpg/2880px-Busway_in_Bundaran_HI.jpg',
           title: 'Event in Jakarta',
         },
       ]
     }),
+    methods: {
+      onLoadEvent(idEvent) {
+        this.$router.push('/meetup/' + idEvent)
+      }
+    },
   }
 </script>
 
