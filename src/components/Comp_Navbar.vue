@@ -5,12 +5,15 @@
           <v-app-bar-nav-icon @click.native="sideNav = !sideNav"
             class="d-sm-none"
           ></v-app-bar-nav-icon>
-          <v-toolbar-title class="pl-0">Event Meetup</v-toolbar-title>
+          <v-toolbar-title class="pl-0">
+            <router-link to="/" tag="span" style="cursor: pointer;">Event Meetup</router-link>
+          </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items class="d-none d-sm-block">
-            <v-btn left class="btn-navigation">
-              <v-icon left>mdi-account-multiple</v-icon>
-              View Meetups
+            <v-btn left class="btn-navigation" v-for="item in menuItems"
+            :key="item.title" router :to="item.link">
+              <v-icon left>{{ item.icon }}</v-icon>
+              {{ item.title }}
             </v-btn>
           </v-toolbar-items>
         </v-toolbar>
@@ -18,9 +21,10 @@
       <v-navigation-drawer v-model="sideNav" absolute temporary color="purple darken-2" dark>
         <v-list dense>
           <v-list-item
-            v-for="item in items"
+            v-for="item in menuItems"
             :key="item.title"
-            link
+            link router
+            :to="item.link"
           >
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
@@ -42,11 +46,13 @@ export default {
 
   data: () => ({
     sideNav: false,
-    items: [
-      { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-      { title: 'Account', icon: 'mdi-account-box' },
-      { title: 'Admin', icon: 'mdi-gavel' },
-    ],
+    menuItems: [
+      { title: 'View Meetup', icon: 'mdi-account-supervisor', link:'/meetup' },
+      { title: 'Organize Meetup', icon: 'mdi-office-building', link:'/meetup/new' },
+      { title: 'Profile', icon: 'mdi-face-man', link:'/profile' },
+      { title: 'Sign up', icon: 'mdi-smart-card-outline', link:'/signup' },
+      { title: 'Sign in', icon: 'mdi-login-variant', link:'/signin' },
+    ]
   }),
 };
 </script>
