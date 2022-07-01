@@ -2,7 +2,7 @@
   <v-app>
     <comp-navbar />
     <main>
-      <p>awdaw</p>
+      <router-view></router-view>
     </main>
   </v-app>
 </template>
